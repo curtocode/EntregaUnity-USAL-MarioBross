@@ -66,7 +66,7 @@ public class Jugador : MonoBehaviour {
 		if (rigidBody2D.velocity.x < 0)
 			transform.rotation = Quaternion.Euler(0, 180, 0);
 		else if(rigidBody2D.velocity.x > 0)
-			transform.rotation = Quaternion.Euler(0, 0, 0);
+			transform.rotation = Quaternion.Euler(0, 0,0);
 
         //saltar arriba
         if (rigidBody2D.velocity.y > 0 && Physics2D.OverlapBox(transform.GetChild(0).position, new Vector2((collider2d.bounds.max.x - collider2d.bounds.min.x) / 2f, 0.01f), 0) == null)
@@ -99,7 +99,7 @@ public class Jugador : MonoBehaviour {
             if (Input.GetAxis("Jump")!=0)
             {
 				rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, 0);
-                rigidBody2D.AddForce(new Vector2(0, salto), ForceMode2D.Impulse);
+                rigidBody2D.AddForce(new Vector2(30, salto), ForceMode2D.Impulse);
                 Debug.Log("SAlto " + Time.time);
             }
         }
